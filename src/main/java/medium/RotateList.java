@@ -6,8 +6,29 @@ public class RotateList {
         RotateList rotateList = new RotateList();
         ListNode head = rotateList.buildList();
         rotateList.print(head);
-        ListNode newHead=rotateList.rotateRight(head, 2);
+        ListNode newHead = rotateList.rotateRight(head, 2);
         rotateList.print(newHead);
+    }
+
+    public ListNode rotateRightBruteForce(ListNode head, int k) {
+
+        if (head == null) return head;
+        if (head.next == null) return head;
+        int i = 1;
+        while (i <= k) {
+            ListNode slow = head;
+            ListNode fast = slow.next;
+            while (fast.next != null) {
+                fast = fast.next;
+                slow = slow.next;
+            }
+            ListNode temp = fast;
+            slow.next = null;
+            temp.next = head;
+            head = temp;
+            i++;
+        }
+        return head;
     }
 
     private ListNode rotateRight(ListNode head, int k) {
