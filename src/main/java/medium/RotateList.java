@@ -12,7 +12,7 @@ public class RotateList {
 
     public ListNode rotateRightBruteForce(ListNode head, int k) {
 
-        if (head == null) return head;
+        if (head == null) return null;
         if (head.next == null) return head;
         int i = 1;
         while (i <= k) {
