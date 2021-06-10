@@ -1,9 +1,14 @@
 package important;
 
+import java.util.HashMap;
+import java.util.Map;
+
 class LRUCache {
 
-    public LRUCache(int capacity) {
+    Map<Integer, Integer> map;
 
+    public LRUCache(int capacity) {
+        this.map = new HashMap<>(capacity);
     }
 
     public int get(int key) {
