@@ -2,6 +2,7 @@ package datastructure;
 
 public class DoublyLinkedList {
 
+
     class Node {
         Node prev;
         Node next;
@@ -50,6 +51,30 @@ public class DoublyLinkedList {
             current = current.next;
         }
         return removed;
+    }
+
+    public int removeLRU() {
+        int removed = head.val;
+        if (head == tail) {
+            head = tail = null;
+        } else {
+            head = head.next;
+            head.prev = null;
+            print();
+        }
+        return removed;
+    }
+
+    public void bringAhead(int key) {
+        if (head != tail) {
+            remove(key);
+            Node ahead = new Node(key);
+            ahead.prev = tail;
+            tail.next = ahead;
+            ahead.next = null;
+            tail = ahead;
+        }
+        print();
     }
 
     public void print() {
