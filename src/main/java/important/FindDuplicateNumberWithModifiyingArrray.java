@@ -1,5 +1,7 @@
 package important;
 
+import medium.FindDuplicateNumber;
+
 /**
  * Note this algo is based on Cycle detection algo
  * Idea is to get a first overlap due to cycle.
@@ -7,14 +9,16 @@ package important;
  */
 public class FindDuplicateNumberWithModifiyingArrray {
 
+
     public static void main(String[] args) {
+        FindDuplicateNumberWithModifiyingArrray find = new FindDuplicateNumberWithModifiyingArrray();
         int[] input = new int[]{1, 3, 4, 2, 2,
         };
 
-        System.out.println(findCycle(input));
+        System.out.println(find.findCycle(input));
     }
 
-    private static int findCycle(int[] nums) {
+    private int findCycle(int[] nums) {
         if (nums.length < 1) return -1;
         int slow = nums[0];
         int fast = nums[nums[0]];
