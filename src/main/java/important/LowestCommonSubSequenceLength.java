@@ -22,14 +22,14 @@ public class LowestCommonSubSequenceLength {
 
     //way 2
     public int longestCommonSubsequenceUsingMemoization(String text1, String text2) {
-        int dp[][] = new int[text1.length() + 1][text2.length() + 1];
+        int[][] dp = new int[text1.length() + 1][text2.length() + 1];
         for (int[] ints : dp) {
             Arrays.fill(ints, -1);
         }
         return recursionUsingMemo(text1, text2, 0, 0, dp);
     }
 
-    public int recursionUsingMemo(String text1, String text2, int i, int j, int dp[][]) {
+    public int recursionUsingMemo(String text1, String text2, int i, int j, int[][] dp) {
         if (i > text1.length() - 1 || j > text2.length() - 1)
             return 0;
         if (dp[i][j] != -1) return dp[i][j];
