@@ -32,7 +32,7 @@ public class LeetCode46 {
 
 
     public static void main(String[] args) {
-        LeetCode46 leetCode46=new LeetCode46();
-    System.out.println(leetCode46.allPermutations("123"));
+        LeetCode46 leetCode46 = new LeetCode46();
+        System.out.println(leetCode46.allPermutations("123"));
     }
 }
