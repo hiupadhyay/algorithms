@@ -10,45 +10,49 @@ import java.util.Map;
 public class SubarraySumK {
 
     public static void main(String[] args) {
-        int[] in = new int[]{6, 3, -1, -3, 4, -2, 2,
-                4, 6, -12, -7};
+        int[] in = new int[]{1, -1, 0};
         int k = 0;
         int i = new SubarraySumK().getTotalSubArrays(in, k);
         //System.out.println(i);
-        new SubarraySumK().printAllSubArrays(in, k);
+        List<Pair<Integer, Integer>> output = new SubarraySumK().printAllSubArrays(in, k);
+        System.out.print(output.size());
+        prinAllOutput(output, in);
     }
 
-    private void printAllSubArrays(int[] in, int k) {
+    private static void prinAllOutput(List<Pair<Integer, Integer>> output, int[] in) {
+        for (Pair<Integer, Integer> pair : output) {
+            for (int i = pair.fst; i <= pair.snd; i++) {
+                System.out.print(in[i] + "\t");
+            }
+            System.out.print("\n");
+        }
+    }
+
+    //6, 3, -1, -3, 4, -2, 2,
+//                4, 6, -12, -7
+    private List<Pair<Integer, Integer>> printAllSubArrays(int[] in, int k) {
+        List<Pair<Integer, Integer>> output = new ArrayList<>();
+        Map<Integer, List<Integer>> map = new HashMap<>();
         int sum = 0;
-        Map<Integer, List<Integer>> lookup = new HashMap<>();
-        List<Pair<Integer, Integer>> pair = new ArrayList<>();
-        List<Integer> li = new ArrayList<>();
-        li.add(0);
-        lookup.put(0, li);
+        map.put(0, new ArrayList<>());
+        map.get(0).add(-1);
         for (int i = 0; i < in.length; i++) {
             sum += in[i];
-            if (lookup.containsKey(sum - k)) {
-                lookup.get(sum - k).add(i);
-                for (int el : lookup.get(sum - k)) {
-                    pair.add(new Pair<>(el + 1, i));
-                }
-            } else {
-                List<Integer> li1 = new ArrayList<>();
-                li1.add(i);
-                lookup.put(sum, li1);
+            if (map.containsKey(sum - k)) {
+                List<Integer> li = map.get(sum - k);
+                for (Integer l : li)
+                    output.add(new Pair<>(l + 1, i));
             }
+            if(!map.containsKey(sum))
+            {
+                map.put(sum, new ArrayList<>());
+            }
+            map.get(sum).add(i);
+
         }
-        pair.forEach((p) -> printSubArray(in, p.fst, p.snd));
+        return output;
     }
 
-    private void printSubArray(int[] in, int start, int end) {
-        while (start <= end) {
-            System.out.print(in[start] + "\t");
-            start++;
-        }
-        System.out.println();
-
-    }
 
     private int getTotalSubArrays(int[] in, int k) {
         int count = 0;
