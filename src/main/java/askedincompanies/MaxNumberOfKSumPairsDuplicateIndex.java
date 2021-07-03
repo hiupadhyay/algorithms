@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class MaxNumberOfKSumPairsDuplicateIndex {
 
-    public int maxNumber(int arr[], int k) {
+    public int maxNumber(int[] arr, int k) {
         int count = 0;
         Set<Integer> map = new HashSet<>();
         for (int i : arr) {
