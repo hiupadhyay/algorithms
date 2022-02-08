@@ -1,6 +1,5 @@
 package medium;
 
-import com.sun.tools.internal.xjc.reader.xmlschema.BindPurple;
 
 public class NumberofIslands {
 
