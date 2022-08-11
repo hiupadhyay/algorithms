@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.stream.IntStream;
 
-public class TestQuestionNo215 {
+public class QuestionNo215Test {
 
     private static QuestionNo215 questionNo215;
 
