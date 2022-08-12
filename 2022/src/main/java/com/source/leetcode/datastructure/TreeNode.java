@@ -10,8 +10,4 @@ public class TreeNode {
         this.left = this.right = null;
         this.val = val;
     }
-
-    public int getVal() {
-        return val;
-    }
 }
