@@ -1,3 +1,5 @@
+package leetcode;
+
 import com.source.leetcode.QuestionNo226;
 import com.source.leetcode.datastructure.TreeNode;
 import org.assertj.core.api.Assertions;
